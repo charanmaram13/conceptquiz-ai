@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: conceptquiz-ai-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_MODEL
+        value: gemma-4-26b-a4b-it
+      - key: GEMINI_API_KEY
+        sync: false

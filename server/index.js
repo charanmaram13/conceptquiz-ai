@@ -10,13 +10,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Security and utility middleware
+const allowedOrigin = process.env.CORS_ORIGIN || true;
 app.use(cors({
-  origin: true,
+  origin: allowedOrigin,
   credentials: true
 }));
 
-app.use(express.json({ limit: '1mb' }));
-app.use(express.urlencoded({ extended: true, limit: '1mb' }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Request logging in development
 if (process.env.NODE_ENV !== 'test') {
